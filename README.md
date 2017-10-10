@@ -1,6 +1,8 @@
 # hibernate-tutorial5
 Hibernate tutorial 5 : **"One To Many"** association
 
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat)](https://github.com/nfriaa/hibernate-tutorial5/issues) [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/nfriaa/hibernate-tutorial5) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/nfriaa/hibernate-tutorial5/blob/master/LICENSE)
+
 ## Description
 A sample code to learn how to map **"One To Many"** relationship between two entities using the Hibernate ORM.
 * JavaSE 8
@@ -49,16 +51,16 @@ Create only database, don't create tables (tables will be created by Hibernate)
         <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!-- Entities -->
-        <mapping class="net.isetjb.hibernatetutorial4.Product"/>
-        <mapping class="net.isetjb.hibernatetutorial4.Category"/>
+        <mapping class="net.isetjb.hibernatetutorial5.Product"/>
+        <mapping class="net.isetjb.hibernatetutorial5.Category"/>
     </session-factory>
 </hibernate-configuration>
 ```
 * hibernate.hbm2ddl.auto : "create" => creates the schema necessary for defined entities, destroying any previous data
 * don't forget to map the two entities in this XML config file (Product and Category)
 
-## 4. "Many To One" association
-Source entity : **Product.java**
+## 4. "One To Many" association
+* Destination entity : **Product.java**
 ```
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -87,11 +89,8 @@ public class Product
 
     // Getters and Setters here...
 ```
-* @ManyToOne : is equivalent to foreign key relationship in a database
-* @JoinColumn : name of the foreign key column in the *source entity*
-* @ForeignKey : name of the constraint (foreign key) in the *destination entity*
 
-Destination entity : **Category.java**
+* Source entity : **Category.java**
 ```
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -117,6 +116,10 @@ public class Category
 
     // Getters and Setters here...
 ```
+* @OneToMany : In **One To Many** association, source entity has a field that stores one or more target entities
+* There are two types of **One To Many** association : 
+* * Unidirectional : only source entity has a relationship field that refers to the target entity
+* * Bidirectional : each entity (i.e. source and target) has a relationship field that refers to each other
 
 ## 5. Main Class "Application.java"
 * create main class to test the code
