@@ -88,6 +88,7 @@ public class Product
     private int price;
 
     // Getters and Setters here...
+}
 ```
 
 * Source entity : **Category.java**
@@ -115,11 +116,12 @@ public class Category
     private List<Product> products = new ArrayList<>();
 
     // Getters and Setters here...
+}
 ```
 * @OneToMany : In **One To Many** association, source entity has a field that stores one or more target entities
 * There are two types of **One To Many** association : 
-* * Unidirectional : only source entity has a relationship field that refers to the target entity
-* * Bidirectional : each entity (i.e. source and target) has a relationship field that refers to each other
+    * Unidirectional : only source entity has a relationship field that refers to the target entity
+    * Bidirectional : each entity (i.e. source and target) has a relationship field that refers to each other
 
 ## 5. Main Class "Application.java"
 * create main class to test the code
