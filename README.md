@@ -60,7 +60,7 @@ Create only database, don't create tables (tables will be created by Hibernate)
 * don't forget to map the two entities in this XML config file (Product and Category)
 
 ## 4. "One To Many" association
-* Destination entity : **Product.java**
+`Destination entity : **Product.java**`
 ```
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -91,7 +91,7 @@ public class Product
 }
 ```
 
-* Source entity : **Category.java**
+`Source entity : **Category.java**`
 ```
 import javax.persistence.Column;
 import javax.persistence.Entity;
