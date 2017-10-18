@@ -11,15 +11,14 @@ import org.hibernate.Transaction;
  *
  * @author Nafaa Friaa (nafaa.friaa@isetjb.rnu.tn)
  */
-public class Application
-{
+public class Application {
+
     /**
      * Attribute declaration for factory to share between methods.
      */
     private static SessionFactory factory;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         System.out.println("JavaSE + Maven + Hibernate + MySQL : Many to One Association");
 
         // Open connection  pool
@@ -28,8 +27,7 @@ public class Application
         Session session = factory.openSession();
         Transaction transaction = null;
 
-        try
-        {
+        try {
             transaction = session.beginTransaction();
 
             // new product
@@ -64,16 +62,13 @@ public class Application
             session.save(category_b);
 
             transaction.commit();
-        } catch (Exception e)
-        {
-            if (transaction != null)
-            {
+        } catch (Exception e) {
+            if (transaction != null) {
                 transaction.rollback();
             }
             //e.printStackTrace();
             System.out.println("ERROR: " + e.getMessage());
-        } finally
-        {
+        } finally {
             session.close();
         }
 
