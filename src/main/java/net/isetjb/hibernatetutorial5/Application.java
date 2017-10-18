@@ -1,7 +1,5 @@
 package net.isetjb.hibernatetutorial5;
 
-import java.util.Iterator;
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
