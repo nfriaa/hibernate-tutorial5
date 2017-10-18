@@ -14,9 +14,12 @@ A sample code to learn how to map **"One To Many"** relationship between two ent
 ## 1. Database
 Create only database, don't create tables (tables will be created by Hibernate)
 * database name : **persist_db**
+```sql
+CREATE DATABASE `persist_db` /*!40100 DEFAULT CHARACTER SET utf8 */
+```
 
 ## 2. Maven "pom.xml" dependencies
-```
+```xml
 <dependencies>
     <!-- MySQL connector -->
     <dependency>
@@ -34,7 +37,7 @@ Create only database, don't create tables (tables will be created by Hibernate)
 ```
 
 ## 3. Hibernate configuration file "hibernate.cfg.xml"
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
@@ -43,7 +46,7 @@ Create only database, don't create tables (tables will be created by Hibernate)
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/persist_db?useTimezone=true&amp;serverTimezone=UTC</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.password"></property>
 
         <!-- Hibernate -->
         <property name="show_sql">true</property>
@@ -61,7 +64,7 @@ Create only database, don't create tables (tables will be created by Hibernate)
 
 ## 4. "One To Many" association
 `Destination entity : Product.java`
-```
+```java
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -92,7 +95,7 @@ public class Product
 ```
 
 `Source entity : Category.java`
-```
+```java
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -126,7 +129,7 @@ public class Category
 ## 5. Main Class "Application.java"
 * create main class to test the code
 * example :
-```
+```java
     // new product
     Product product_x = new Product();
     product_x.setName("Prod x");
