@@ -26,6 +26,7 @@ nbproject/
 build/
 build.xml
 test/
+target/
 manifest.mf
 nbactions.xml
 nb-configuration.xml
